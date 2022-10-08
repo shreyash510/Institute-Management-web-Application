@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAll, updateStudent } from '../../Redux/thunk/studentThunk';
 
 const UpdateStudent = (props) => {
-    // console.log(props)
     const dispatch = useDispatch()
     const [data, setData] = useState(props.data)
     const [show, setShow] = useState(false);
@@ -26,12 +25,9 @@ const UpdateStudent = (props) => {
     }
 
     const btnClick = (e) => {
-        // e.preventDefault();
         dispatch(updateStudent(data));
         dispatch(getAll());
-        setShow(false);
-        
-        // console.log(data)
+        setShow(false);        
     }
     return (
         <>
@@ -61,10 +57,6 @@ const UpdateStudent = (props) => {
                             <label htmlFor="inputAddress" className="form-label">CourseId</label>
                             <input type="number" className="form-control" value={data.courseId} onChange={inputEvent} name="courseId" placeholder="1" />
                         </div>
-                        {/* <div className="col-4">
-                            <label htmlFor="inputAddress" className="form-label">Password</label>
-                            <input type="password" className="form-control" value={props.data.password} onChange={inputEvent} name="password" placeholder="xxxxxxxxxx " />
-                        </div> */}
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -79,7 +71,5 @@ const UpdateStudent = (props) => {
         </>
     );
 }
-
-// render(<UpdateStudent />);
 
 export default UpdateStudent;

@@ -25,10 +25,8 @@ const CreateStudent = () => {
     }
 
     const btnClick = (e) => {
-        // e.preventDefault();
         dispatch(addStudent(data));
         setShow(false);
-        // console.log(data)
     }
     return (
         <>
@@ -76,7 +74,5 @@ const CreateStudent = () => {
         </>
     );
 }
-
-// render(<CreateStudent />);
 
 export default CreateStudent;

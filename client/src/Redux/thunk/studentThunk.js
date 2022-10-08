@@ -8,7 +8,6 @@ export const getAll = createAsyncThunk(
       let res = await getAxios().get("/student");
       return res;
     } catch (error) {
-      //console.log(error);
       return thunkAPi.rejectWithValue(error);
     }
   }
@@ -22,7 +21,6 @@ export const addStudent = createAsyncThunk(
       await thunkAPi.dispatch(getAll())
       return res;
     } catch (error) {
-      // //console.log(error);
       return thunkAPi.rejectWithValue(error);
     }
   }
@@ -35,9 +33,10 @@ export const deleteStudent = createAsyncThunk(
       let res = await getAxios().delete(
         `/student/${model}/delete`
       );
+      await thunkAPi.dispatch(getAll())
+      alert("Data Deleted succesfully!");
       return res.data;
     } catch (error) {
-      //console.log(error);
       return thunkAPi.rejectWithValue(error);
     }
   }
@@ -50,9 +49,10 @@ export const updateStudent = createAsyncThunk(
       let res = await getAxios().put(
         `/student/${model.studentId}/update`, model
       );
+      await thunkAPi.dispatch(getAll());
+      alert("data updated succesfully")
       return res.data;
     } catch (error) {
-      //console.log(error);
       return thunkAPi.rejectWithValue(error);
     }
   }

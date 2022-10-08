@@ -18,8 +18,6 @@ const Sidebar = () => {
             <li style={{cursor:"pointer"}} className='list-unstyled py-2' onClick={() => navigate('/details/student')}>Student</li>
             <li style={{cursor:"pointer"}} className='list-unstyled py-2' onClick={() => navigate('/details/staff')}>Staff</li>
             <li style={{cursor:"pointer"}} className='list-unstyled py-2' onClick={() => navigate('/details/course')}>Course</li>
-            {/* <li className='list-unstyled py-2'><Link to="detail/staff">Staff</Link></li>
-          <li className='list-unstyled py-2'><Link to="detail/course">Course</Link></li> */}
           </ul>
 
         </Nav>

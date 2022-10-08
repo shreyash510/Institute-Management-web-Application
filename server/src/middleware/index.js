@@ -4,10 +4,11 @@ const { User } = require('../model/index');
 
 const authMiddleware = async (req, res, next) => {
     let token = req.headers["token"];
+    // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjUzMDMwODksImRhdGEiOnsiYXV0aEVtYWlsIjoieW9nZXNoQGdtYWlsLmNvbSIsImF1dGhQYXNzd29yZCI6IkFkbWluQDEyMyJ9LCJpYXQiOjE2NjUyMTY2ODl9.TTrVxdhyc67DVIoDoyvo83aM8EEn4gr1b9-6xApfIPw'
+    // console.log(token)
     try {
         let verifiedToken = jwt.verify(token, constants.SECRETE_KEY);
         let data = verifiedToken.data;
-        // console.log(data)
         let userData = await User.findOne({
             where: {
                 authEmail: data.authEmail,
