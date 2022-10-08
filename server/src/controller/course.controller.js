@@ -50,8 +50,8 @@ module.exports = {
     },
     delete: async function (req, res) {
         try {
-            const CourseId = req.params.sId;
-            let course = await service.delete(CourseId);
+            const courseId = req.params.cId;
+            let course = await service.delete(courseId);
             res.statusCode = 200;
             res.send(course);
         } catch (error) {

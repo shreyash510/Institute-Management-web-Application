@@ -7,9 +7,6 @@ import { deleteStudent, getAll } from '../../Redux/thunk/studentThunk';
 import UpdateStudent from './UpdateStudent';
 
 
-// import SideBar from '../Sidebar'
-
-
 const Student = () => {
     const dispatch = useDispatch();
 
@@ -18,17 +15,15 @@ const Student = () => {
     }, [dispatch])
 
     const student = useSelector((state) => state.student)
-    console.log(student)
+    // console.log(student)
 
-    const deleteData=(studentId)=>{
-        // console.log(id);
+    const deleteData = (studentId) => {
         dispatch(deleteStudent(studentId));
         dispatch(getAll());
     }
 
     return (
         <>
-            {/* <SideBar/> */}
             <nav style={{ borderLeft: "1px solid" }} className="navbar bg-light me-auto ms-3 rounded">
                 <div className="container-fluid d-flex justify-content-end">
                     <CreateStudent />
@@ -57,7 +52,7 @@ const Student = () => {
                                     <td>{v.email}</td>
                                     <td>
                                         <button className="btn btn-primary me-2">
-                                            <UpdateStudent data = {v}/>
+                                            <UpdateStudent data={v} />
                                         </button>
                                         <button className="btn btn-primary me-2" onClick={() => deleteData(v.studentId)}>
                                             Delete

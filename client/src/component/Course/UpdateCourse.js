@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch } from 'react-redux';
-import { getAll, updateStudent } from '../../Redux/thunk/studentThunk';
+import { updateCourse } from '../../Redux/thunk/courseThunk';
 
-const UpdateStudent = (props) => {
+const UpdateCourse = (props) => {
     const dispatch = useDispatch()
     const [data, setData] = useState(props.data)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    // const response = useSelector((state) => state.course);
+    // console.log(response);
 
     const inputEvent = (e) => {
         setData((preV) => {
@@ -22,8 +25,7 @@ const UpdateStudent = (props) => {
     }
 
     const btnClick = (e) => {
-        dispatch(updateStudent(data));
-        dispatch(getAll());
+        dispatch(updateCourse(data));
         setShow(false);
     }
     return (
@@ -39,20 +41,16 @@ const UpdateStudent = (props) => {
                 <Modal.Body>
                     <form className="row g-3">
                         <div className="col-md-6">
-                            <label htmlFor="inputEmail4" className="form-label">Full Name</label>
-                            <input type="text" className="form-control" value={data.name} onChange={inputEvent} name="name" placeholder='Enter full name..' />
+                            <label htmlFor="inputEmail4" className="form-label">Course Name</label>
+                            <input type="text" className="form-control" value={data.name} onChange={inputEvent} name="name" placeholder='Enter Course name..' />
                         </div>
                         <div className="col-md-6">
-                            <label htmlFor="inputPassword4" className="form-label">Email</label>
-                            <input type="text" className="form-control" value={data.email} onChange={inputEvent} name="email" placeholder='Enter email..' />
+                            <label htmlFor="inputPassword4" className="form-label">Fees</label>
+                            <input type="number" className="form-control" value={data.fees} onChange={inputEvent} name="fees" placeholder='30000' />
                         </div>
                         <div className="col-4">
-                            <label htmlFor="inputAddress" className="form-label">Age</label>
-                            <input type="number" className="form-control" value={data.age} onChange={inputEvent} name="age" placeholder="23" />
-                        </div>
-                        <div className="col-4">
-                            <label htmlFor="inputAddress" className="form-label">CourseId</label>
-                            <input type="number" className="form-control" value={data.courseId} onChange={inputEvent} name="courseId" placeholder="1" />
+                            <label htmlFor="inputAddress" className="form-label">Duration</label>
+                            <input type="number" className="form-control" value={data.duration} onChange={inputEvent} name="duration" placeholder="2" />
                         </div>
                     </form>
                 </Modal.Body>
@@ -61,7 +59,7 @@ const UpdateStudent = (props) => {
                         Close
                     </Button>
                     <Button variant="primary" onClick={btnClick}>
-                        Update student details
+                        Update Course details
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -69,4 +67,4 @@ const UpdateStudent = (props) => {
     );
 }
 
-export default UpdateStudent;
+export default UpdateCourse;

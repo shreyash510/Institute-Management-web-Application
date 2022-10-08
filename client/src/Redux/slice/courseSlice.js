@@ -1,37 +1,35 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import {
-    getAll,
+    getAllCourse,
     addCourse,
     deleteCourse,
     updateCourse
-} from '../thunk/studentThunk';
+} from '../thunk/courseThunk';
 
 const initialState = {
     courseData: [],
-    courseResponse: []
 }
 
 const courseSlice = createSlice({
-    name: "StudentSlice",
+    name: "CourseSlice",
     reducers: {},
     initialState,
     extraReducers: {
-        // Get All Customers Data
+        // Get All Course Data
 
-        [getAll.pending]: (state, action) => {
+        [getAllCourse.pending]: (state, action) => {
             state.loading = true;
         },
-        [getAll.fulfilled]: (state, action) => {
+        [getAllCourse.fulfilled]: (state, action) => {
             state.loading = false;
-            state.studentData = action.payload.data;
+            state.courseData = action.payload.data;
         },
-        [getAll.rejected]: (state, action) => {
+        [getAllCourse.rejected]: (state, action) => {
             state.loading = false;
         },
 
-        // Add new Student
-
+        // Add new Course
 
         [addCourse.pending]: (state, action) => {
             state.loading = true;

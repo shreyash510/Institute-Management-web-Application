@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addStudent } from '../../Redux/thunk/studentThunk';
 
 const CreateStudent = () => {
@@ -11,9 +11,6 @@ const CreateStudent = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    const response = useSelector((state) => state.student);
-    console.log(response);
 
     const inputEvent = (e) => {
         setData((preV) => {

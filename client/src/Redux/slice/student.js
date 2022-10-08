@@ -9,7 +9,6 @@ import {
 
 const initialState = {
     studentData: [],
-    studentResponse: []
 }
 
 const studentSlice = createSlice({

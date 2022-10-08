@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useDispatch } from 'react-redux'
+import { addCourse } from '../../Redux/thunk/courseThunk';
 
 const CreateStudent = () => {
+    const dispatch = useDispatch();
+
     const [data, setData] = useState({})
     const [show, setShow] = useState(false);
 
@@ -18,9 +22,10 @@ const CreateStudent = () => {
         })
     }
 
-    const btnClick = (e) =>{
+    const btnClick = (e) => {
         e.preventDefault();
-        console.log(data)
+        dispatch(addCourse(data))
+        setShow(false);
     }
     return (
         <>

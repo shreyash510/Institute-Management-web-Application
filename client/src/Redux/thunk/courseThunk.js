@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getAxios } from "../../helper";
 
-export const getAll = createAsyncThunk(
-  "student/getAll",
+export const getAllCourse = createAsyncThunk(
+  "course/getAllcourse",
   async (model, thunkAPi) => {
     try {
-      let res = await getAxios().get("/student");
+      let res = await getAxios().get("/course");
       return res;
     } catch (error) {
       //console.log(error);
@@ -14,12 +14,12 @@ export const getAll = createAsyncThunk(
   }
 );
 
-export const addStudent = createAsyncThunk(
-  "student/addStudent",
+export const addCourse = createAsyncThunk(
+  "course/addCourse",
   async (model, thunkAPi) => {
     try {
-      let res = await getAxios().post("/student/signin", model);
-      await thunkAPi.dispatch(getAll())
+      let res = await getAxios().post("/course/add", model);
+      await thunkAPi.dispatch(getAllCourse())
       return res;
     } catch (error) {
       // //console.log(error);
@@ -28,13 +28,14 @@ export const addStudent = createAsyncThunk(
   }
 );
 
-export const deleteStudent = createAsyncThunk(
-  "student/delStudent",
+export const deleteCourse = createAsyncThunk(
+  "course/delCourse",
   async (model, thunkAPi) => {
     try {
       let res = await getAxios().delete(
-        `/student/${model}/delete`
+        `/course/${model}/delete`
       );
+      thunkAPi.dispatch(getAllCourse())
       return res.data;
     } catch (error) {
       //console.log(error);
@@ -43,13 +44,14 @@ export const deleteStudent = createAsyncThunk(
   }
 );
 
-export const updateStudent = createAsyncThunk(
-  "student/updateStudent",
+export const updateCourse = createAsyncThunk(
+  "course/updateCourse",
   async (model, thunkAPi) => {
     try {
       let res = await getAxios().put(
-        `/student/${model.studentId}/update`, model
+        `/course/${model.courseId}/update`, model
       );
+      thunkAPi.dispatch(getAllCourse())
       return res.data;
     } catch (error) {
       //console.log(error);
