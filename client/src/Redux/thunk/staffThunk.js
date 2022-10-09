@@ -43,7 +43,7 @@ export const staffUpdate = createAsyncThunk(
   'staff/updateStaff',
   async (model, thunkAPi)=>{
     try{
-      const response = await getAxios().put(`/staff/${model.courseId}/update`,model);
+      const response = await getAxios().put(`/staff/${model.staffId}/update`,model);
       await thunkAPi.dispatch(getAllStaff());
       return response;
     }catch(error){

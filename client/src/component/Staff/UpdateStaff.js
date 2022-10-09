@@ -13,7 +13,7 @@ const UpdateStaff = (props) => {
     const handleShow = () => setShow(true);
 
     // const response = useSelector((state) => state.course);
-    // console.log(response);
+    console.log(data);
 
     const inputEvent = (e) => {
         setData((preV) => {
@@ -46,15 +46,15 @@ const UpdateStaff = (props) => {
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword4" className="form-label">Gender</label>
-                            <input type="text" className="form-control" value={data.gender} onChange={inputEvent} name="fees" placeholder='30000' />
+                            <input type="text" className="form-control" value={data.gender} onChange={inputEvent} name="gender" placeholder='30000' />
                         </div>
                         <div className="col-4">
                             <label htmlFor="inputAddress" className="form-label">Age</label>
-                            <input type="number" className="form-control" value={data.age} onChange={inputEvent} name="duration" placeholder="2" />
+                            <input type="number" className="form-control" value={data.age} onChange={inputEvent} name="age" placeholder="2" />
                         </div>
                         <div className="col-4">
                             <label htmlFor="inputAddress" className="form-label">CourseId</label>
-                            <input type="number" className="form-control" value={data.courseId} onChange={inputEvent} name="duration" placeholder="2" />
+                            <input type="number" className="form-control" value={data.courseId} onChange={inputEvent} name="courseId" placeholder="2" />
                         </div>
                     </form>
                 </Modal.Body>
