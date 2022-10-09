@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {useDispatch} from 'react-redux'
-import { staffSignIn } from '../../Redux/thunk/staffThunk';
+import { useDispatch } from 'react-redux';
+import { staffUpdate } from '../../Redux/thunk/staffThunk';
 
-const CreateStudent = () => {
+const UpdateStaff = (props) => {
     const dispatch = useDispatch()
-    const [data, setData] = useState({});
+    const [data, setData] = useState(props.data)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    // const response = useSelector((state) => state.course);
+    // console.log(response);
 
     const inputEvent = (e) => {
         setData((preV) => {
@@ -22,37 +25,36 @@ const CreateStudent = () => {
     }
 
     const btnClick = (e) => {
-        e.preventDefault();
-        dispatch(staffSignIn(data));
-        setShow(false)
+        dispatch(staffUpdate(data));
+        setShow(false);
     }
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Add New Staff
+            <Button variant="primary p-0" onClick={handleShow}>
+                Edit
             </Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add new Staff</Modal.Title>
+                    <Modal.Title>Update Student</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form className="row g-3">
                         <div className="col-md-6">
-                            <label htmlFor="inputEmail4" className="form-label">Full Name</label>
-                            <input type="text" className="form-control" name="name" onChange={inputEvent} placeholder='Enter full name..' />
+                            <label htmlFor="inputEmail4" className="form-label">Staff Name</label>
+                            <input type="text" className="form-control" value={data.name} onChange={inputEvent} name="name" placeholder='Enter Course name..' />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword4" className="form-label">Gender</label>
-                            <input type="text" className="form-control" name="gender" onChange={inputEvent} placeholder='eg. male' />
+                            <input type="text" className="form-control" value={data.gender} onChange={inputEvent} name="fees" placeholder='30000' />
                         </div>
-                        <div className="col-6">
+                        <div className="col-4">
                             <label htmlFor="inputAddress" className="form-label">Age</label>
-                            <input type="number" className="form-control" id="inputAddress" name="age" onChange={inputEvent} placeholder="23" />
+                            <input type="number" className="form-control" value={data.age} onChange={inputEvent} name="duration" placeholder="2" />
                         </div>
-                        <div className="col-6">
+                        <div className="col-4">
                             <label htmlFor="inputAddress" className="form-label">CourseId</label>
-                            <input type="number" className="form-control" id="inputAddress" name="courseId" onChange={inputEvent} placeholder="1" />
+                            <input type="number" className="form-control" value={data.courseId} onChange={inputEvent} name="duration" placeholder="2" />
                         </div>
                     </form>
                 </Modal.Body>
@@ -61,7 +63,7 @@ const CreateStudent = () => {
                         Close
                     </Button>
                     <Button variant="primary" onClick={btnClick}>
-                        Save Staff details
+                        Update Staff details
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -69,6 +71,4 @@ const CreateStudent = () => {
     );
 }
 
-// render(<CreateStudent />);
-
-export default CreateStudent;
+export default UpdateStaff;

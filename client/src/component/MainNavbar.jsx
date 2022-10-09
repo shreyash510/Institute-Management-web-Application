@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -16,7 +15,7 @@ const MainNavbar = () => {
                         <LinkContainer to="details/student"><Nav.Link >Details</Nav.Link></LinkContainer>
                         <LinkContainer to="/about"><Nav.Link >About us</Nav.Link></LinkContainer>
                         <LinkContainer to="/contact"><Nav.Link >Contact us</Nav.Link></LinkContainer>
-                        <Button as="input" type="button" value="Login" />
+                        <button className="btn btn-primary">Login</button>
                     </Nav>
                 </Container>
             </Navbar>
