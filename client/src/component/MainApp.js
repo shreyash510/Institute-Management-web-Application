@@ -5,7 +5,7 @@ import Content from './Content';
 import { Routes, Route } from 'react-router-dom';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
-import Home from './Home'
+import Home from './Pages/Home'
 import MainNavbar from './MainNavbar';
 // import Details from './Pages/Details';
 
