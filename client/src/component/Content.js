@@ -15,9 +15,9 @@ const Content = () => {
                 {/* <Course /> */}
                 {/* <Sidebar/> */}
                 <Routes>
-                    <Route path="details/student" element={<Student />} />
-                    <Route path="details/staff" element={<Staff />} />
-                    <Route path="details/course" element={<Course />} />                    
+                    <Route path="/student" element={<Student />} />
+                    <Route path="/staff" element={<Staff />} />
+                    <Route path="/course" element={<Course />} />                    
                 </Routes>
             </div>
         </>

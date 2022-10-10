@@ -47,12 +47,12 @@ const Student = () => {
                                     <td>{v.fees}</td>
                                     <td>{v.duration}</td>
                                     <td>
-                                        <button className="btn btn-primary me-2">
+                                        <span className="btn btn-primary me-2">
                                             <UpdateCourse data={v}/>
-                                        </button>
-                                        <button className="btn btn-primary me-2" onClick={() => delCourse(v.courseId)}>
+                                        </span>
+                                        <span className="btn btn-primary me-2" onClick={() => delCourse(v.courseId)}>
                                             Delete
-                                        </button>
+                                        </span>
                                     </td>
                                 </tr>
                             })

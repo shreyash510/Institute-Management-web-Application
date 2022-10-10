@@ -6,24 +6,22 @@ import { Routes, Route } from 'react-router-dom';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Home from './Home'
+import MainNavbar from './MainNavbar';
 // import Details from './Pages/Details';
 
 const mainApp = () => {
-  // console.log(window.location.pathname)
   return (
     <>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-
-      </Routes>
-
+      <MainNavbar />
       <div className="mainApp d-flex">
-        {/* <Route path="/details" element={<Details/>} /> */}
         <Sidebar />
-        <Content />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path='/details/*' element={<Content />} />
+
+        </Routes>
       </div>
 
     </>

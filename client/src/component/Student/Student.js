@@ -5,14 +5,16 @@ import CreateStudent from './CreateStudent';
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteStudent, getAll } from '../../Redux/thunk/studentThunk';
 import UpdateStudent from './UpdateStudent';
+import {useLocation} from 'react-router-dom'
 
 
 const Student = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
 
     useEffect(() => {
         dispatch(getAll());
-    }, [dispatch])
+    }, [])
 
     const student = useSelector((state) => state.student)
     // console.log(student)
@@ -51,12 +53,14 @@ const Student = () => {
                                     <td>{v.age}</td>
                                     <td>{v.email}</td>
                                     <td>
-                                        <button className="btn btn-primary me-2">
-                                            <UpdateStudent data={v} />
-                                        </button>
-                                        <button className="btn btn-primary me-2" onClick={() => deleteData(v.studentId)}>
-                                            Delete
-                                        </button>
+                                        <>
+                                            <span className="btn btn-primary me-2">
+                                                <UpdateStudent data={v} />
+                                            </span>
+                                            <span className="btn btn-primary me-2" onClick={() => deleteData(v.studentId)}>
+                                                Delete
+                                            </span>
+                                        </>
                                     </td>
                                 </tr>
                             })
